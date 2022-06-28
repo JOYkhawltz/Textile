@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
         'inventory/categories' => 'ProductCategoryController',
         'transactions/transfer' => 'TransferController',
         'methods' => 'MethodController',
+        'chartofaccounts' => 'ChartofaccountsController'
     ]);
     
     Route::resource('transactions', 'TransactionController')->except(['create', 'show']);

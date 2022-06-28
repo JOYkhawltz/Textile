@@ -7,6 +7,12 @@
                     <p>Dashboard</p>
                 </a>
             </li>
+            <li @if ($pageSlug == 'chartofaccount') class="active " @endif>
+                <a href="{{ route('chartofaccounts.index') }}">
+                    <i class="tim-icons icon-single-02"></i>
+                    <p>chart of account</p>
+                </a>
+            </li>
             <li>
                 <a data-toggle="collapse" href="#transactions" {{ $section == 'transactions' ? 'aria-expanded=true' : '' }}>
                     <i class="tim-icons icon-bank" ></i>
