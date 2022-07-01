@@ -1,3 +1,6 @@
+@php
+use App\Helpers\Common; 
+@endphp
 @extends('layouts.app', ['pageSlug' => 'dashboard', 'page' => 'Dashboard', 'section' => ''])
 
 @section('content')
@@ -51,7 +54,7 @@
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">Last Month Income</h5>
-                    <h3 class="card-title"><i class="tim-icons icon-money-coins text-primary"></i>{{ format_money($semesterincomes) }}</h3>
+                    <h3 class="card-title"><i class="tim-icons icon-money-coins text-primary"></i>{{ Common::format_money($semesterincomes) }}</h3>
                 </div>
                 <div class="card-body">
                     <div class="chart-area">
@@ -64,7 +67,7 @@
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">Monthly Balance</h5>
-                    <h3 class="card-title"><i class="tim-icons icon-bank text-info"></i> {{ format_money($monthlybalance) }}</h3>
+                    <h3 class="card-title"><i class="tim-icons icon-bank text-info"></i> {{ Common::format_money($monthlybalance) }}</h3>
                 </div>
                 <div class="card-body">
                     <div class="chart-area">
@@ -77,7 +80,7 @@
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">Expenditures Last Month</h5>
-                    <h3 class="card-title"><i class="tim-icons icon-paper text-success"></i> {{ format_money($semesterexpenses) }}</h3>
+                    <h3 class="card-title"><i class="tim-icons icon-paper text-success"></i> {{ Common::format_money($semesterexpenses) }}</h3>
                 </div>
                 <div class="card-body">
                     <div class="chart-area">
@@ -132,8 +135,8 @@
                                         <td>{{ date('d-m-y', strtotime($sale->created_at)) }}</td>
                                         <td><a href="">{{ $sale->client->name }}<br>{{ $sale->client->document_type }}-{{ $sale->client->document_id }}</a></td>
                                         <td>{{ $sale->products->count() }}</td>
-                                        <td>{{ format_money($sale->transactions->sum('amount')) }}</td>
-                                        <td>{{ format_money($sale->products->sum('total_amount')) }}</td>
+                                        <td>{{ Common::format_money($sale->transactions->sum('amount')) }}</td>
+                                        <td>{{ Common::format_money($sale->products->sum('total_amount')) }}</td>
                                         <td class="td-actions text-right">
                                             <a href="{{ route('sales.show', ['sale' => $sale]) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="View Sale">
                                                 <i class="tim-icons icon-zoom-split"></i>
@@ -203,7 +206,7 @@
                                         </td>
                                         <td>{{ $transaction->title }}</td>
                                         <td>{{ $transaction->method->name }}</td>
-                                        <td>{{ format_money($transaction->amount) }}</td>
+                                        <td>{{ Common::format_money($transaction->amount) }}</td>
                                         <td class="td-actions text-right">
                                             @if ($transaction->sale_id)
                                                 <a href="{{ route('sales.show', $transaction->sale_id) }}" class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="More details">
