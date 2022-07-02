@@ -19,7 +19,7 @@
                         <form method="post" action="{{ route('clients.store') }}" autocomplete="off">
                             @csrf
                             <h6 class="heading-small text-muted mb-4">Client Information</h6>
-                            <div class="pl-lg-4">
+                            <!-- <div class="pl-lg-4">
                                 <div class="form-group{{ $errors->has('Group_code_id') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-coa">Group Code</label>
                                     <select name="Group_code_id" id="input-coa" class="form-select form-control-alternative{{ $errors->has('Group_code_id') ? ' is-invalid' : '' }}" required>
@@ -59,7 +59,7 @@
                                         @endforeach
                                     </select>
                                     @include('alerts.feedback', ['field' => 'general_account_id'])
-                                </div>
+                                </div> -->
                                 
 
                                 <div class="text-center">
